@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welive — ระบบบริหารหอพักอัจฉริยะ จบครบใน LINE</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta name="description" content="Welive ช่วยเจ้าของหอพักออกบิล ทวงหนี้ อ่านสลิป/มิเตอร์ด้วย AI และตอบผู้เช่า 24 ชม. ผ่าน LINE — เริ่มใช้ฟรี ตั้งค่าเสร็จใน 10 นาที" />
+<meta property="og:title" content="Welive — ระบบบริหารหอพักอัจฉริยะ" />
+<meta property="og:description" content="ออกบิล ทวงหนี้ OCR สลิป/มิเตอร์ AI ตอบผู้เช่า — ครบ จบใน LINE เริ่มใช้ฟรี" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal:#2C8576; --teal-700:#20655A; --ink:#0E3A33; --ink-2:#0C2C27;
+    --lime:#9FE870; --lime-2:#B6F24A; --paper:#F6FAF8; --line:#E2EEE9;
+    --muted:#5C7973; --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'IBM Plex Sans Thai',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.brandfont{font-family:'Sora','IBM Plex Sans Thai',sans-serif}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:13px 24px;font-weight:600;font-size:15px;cursor:pointer;border:0;transition:.18s;font-family:inherit}
+  .btn-primary{background:var(--lime);color:var(--ink)}
+  .btn-primary:hover{background:var(--lime-2);transform:translateY(-1px)}
+  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.25)}
+  .btn-ghost:hover{background:rgba(255,255,255,.16)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:var(--ink-2)}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:800;font-size:21px;letter-spacing:-.01em;color:var(--ink)}
+  .logo .mark{width:34px;height:34px}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:15px;color:var(--muted);font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{position:relative;background:radial-gradient(125% 125% at 78% -10%, #4AA08F 0%, #2C8576 42%, #16443C 100%);color:#fff;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px, rgba(159,232,112,.10) 1px, transparent 0);background-size:26px 26px;opacity:.6}
+  .hero-in{position:relative;z-index:2;padding:84px 0 96px;display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+  @media(max-width:900px){.hero-in{grid-template-columns:1fr;padding:60px 0 72px;gap:40px}}
+  .hero .eyebrow{color:var(--lime)}
+  .hero h1{font-size:clamp(34px,5vw,54px);line-height:1.12;font-weight:800;margin:16px 0 18px;letter-spacing:-.02em}
+  .hero h1 .hl{color:var(--lime)}
+  .hero p.lead{font-size:18px;color:#CFE6DF;max-width:540px;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-trust{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:#A9CEC4}
+  .hero-trust b{color:#fff}
+
+  /* phone mock */
+  .mock{position:relative;justify-self:center;width:300px;height:600px;background:#0c2a25;border:9px solid #08201c;border-radius:42px;box-shadow:0 30px 70px rgba(0,0,0,.45);overflow:hidden}
+  .mock .bar{height:46px;background:var(--teal);display:flex;align-items:center;gap:8px;padding:0 16px;color:#fff;font-weight:600;font-size:14px}
+  .mock .dot{width:9px;height:9px;border-radius:50%;background:var(--lime)}
+  .mock .screen{padding:14px;display:flex;flex-direction:column;gap:10px;background:#EAF3F0;height:100%}
+  .bubble{background:#fff;border-radius:14px;padding:11px 13px;font-size:13px;color:#173b35;box-shadow:0 2px 8px rgba(0,0,0,.05);max-width:88%}
+  .bubble.me{align-self:flex-end;background:#D7F7C9}
+  .flexcard{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+  .flexcard .h{background:var(--teal);color:#fff;padding:10px 14px;font-weight:700;font-size:13px}
+  .flexcard .b{padding:12px 14px;font-size:12.5px;color:#33524c}
+  .flexcard .row{display:flex;justify-content:space-between;padding:3px 0}
+  .flexcard .total{display:flex;justify-content:space-between;border-top:1px dashed #cbded8;margin-top:6px;padding-top:8px;font-weight:700;color:var(--ink)}
+  .flexcard .pay{margin:10px 14px 14px;background:var(--lime);color:var(--ink);text-align:center;border-radius:10px;padding:8px;font-weight:700;font-size:13px}
+
+  /* LOGO STRIP */
+  .strip{background:var(--paper);border-bottom:1px solid var(--line)}
+  .strip-in{padding:22px 0;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+  .strip b{color:var(--ink)}
+
+  /* SECTION */
+  section{padding:84px 0}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 52px}
+  .sec-head h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.02em;margin:12px 0 14px;line-height:1.2}
+  .sec-head p{color:var(--muted);font-size:17px}
+
+  /* PROBLEM */
+  .pain{background:var(--ink);color:#fff}
+  .pain .sec-head h2{color:#fff}
+  .pain .sec-head p{color:#A9CEC4}
+  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.pain-grid{grid-template-columns:1fr}}
+  .pain-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:26px}
+  .pain-card .ic{font-size:26px;margin-bottom:10px}
+  .pain-card h3{font-size:18px;margin-bottom:8px}
+  .pain-card p{color:#9FC0B7;font-size:14.5px}
+  .pain-card .fix{margin-top:14px;color:var(--lime);font-weight:600;font-size:14px;display:flex;align-items:center;gap:7px}
+
+  /* FEATURES */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.feat-grid{grid-template-columns:1fr}}
+  .feat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;transition:.18s}
+  .feat:hover{border-color:var(--teal);box-shadow:0 14px 34px rgba(14,124,107,.10);transform:translateY(-2px)}
+  .feat .ic{width:48px;height:48px;border-radius:13px;background:linear-gradient(135deg,var(--teal),#11705f);display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:16px}
+  .feat h3{font-size:18px;margin-bottom:8px}
+  .feat p{color:var(--muted);font-size:14.5px}
+
+  /* HOW */
+  .how{background:var(--paper)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr 1fr}}
+  .step{text-align:center;padding:10px}
+  .step .n{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--lime);font-family:'Sora';font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:19px}
+  .step h3{font-size:16px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:14px}
+
+  /* PRICING */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  @media(max-width:900px){.price-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px 26px;display:flex;flex-direction:column;position:relative}
+  .plan.feat-plan{border:2px solid var(--teal);box-shadow:0 20px 50px rgba(14,124,107,.16);transform:translateY(-6px)}
+  @media(max-width:900px){.plan.feat-plan{transform:none}}
+  .plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--ink);font-weight:700;font-size:12.5px;padding:5px 16px;border-radius:999px;white-space:nowrap}
+  .plan .pname{font-family:'Sora';font-weight:700;font-size:20px}
+  .plan .pfor{color:var(--muted);font-size:13.5px;margin:4px 0 18px;min-height:20px}
+  .plan .price{display:flex;align-items:baseline;gap:4px}
+  .plan .price .amt{font-family:'Sora';font-weight:800;font-size:40px;color:var(--ink)}
+  .plan .price .per{color:var(--muted);font-size:15px}
+  .plan .yr{font-size:13px;color:var(--teal);font-weight:600;margin:6px 0 4px;min-height:18px}
+  .plan .rooms{background:var(--paper);border-radius:10px;padding:9px 12px;font-size:13.5px;font-weight:600;color:var(--ink);margin:16px 0 18px;text-align:center}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px;flex:1}
+  .plan li{font-size:14px;color:#2c4a44;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--teal);font-weight:800;flex:none}
+  .plan li.off{color:#aab9b5}
+  .plan li.off .ck{color:#cdd9d5}
+  .plan .btn{width:100%;justify-content:center;margin-top:auto}
+  .addon{text-align:center;color:var(--muted);font-size:14px;margin-top:30px}
+
+  /* COMPARE LINK */
+  .compare-note{text-align:center;margin-top:18px;font-size:14px;color:var(--muted)}
+
+  /* CTA */
+  .cta{background:radial-gradient(110% 130% at 20% 0%, #2C8576, #133E37);color:#fff;text-align:center}
+  .cta h2{font-size:clamp(26px,3.6vw,40px);font-weight:800;margin-bottom:14px;letter-spacing:-.02em}
+  .cta p{color:#BFDDD4;font-size:17px;max-width:520px;margin:0 auto 28px}
+  .cta .hero-cta{justify-content:center}
+
+  /* FOOTER */
+  footer{background:var(--ink-2);color:#9FC0B7;padding:46px 0 30px;font-size:14px}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:26px;margin-bottom:22px}
+  .foot-col h4{color:#fff;font-size:14px;margin-bottom:12px;font-weight:600}
+  .foot-col a{display:block;color:#9FC0B7;margin-bottom:8px}
+  .foot-col a:hover{color:var(--lime)}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6f928a;font-size:13px}
+  .badge{display:inline-flex;align-items:center;gap:7px;background:rgba(159,232,112,.12);color:var(--lime);padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="16" fill="#2C8576"/>
+        <path d="M14 20 L24 45 L32 29 L40 45 L50 20" fill="none" stroke="#EAF7F0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M32 29 L40 45 L50 20" fill="none" stroke="#9FE870" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="50" cy="20" r="4" fill="#B6F24A"/>
+      </svg>
+      <span>Welive</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#features">ฟีเจอร์</a>
+      <a href="#how">เริ่มใน 10 นาที</a>
+      <a href="#pricing">แพคเกจ</a>
+      <a href="#faq">คำถามที่พบบ่อย</a>
+      <a href="#signup" class="btn btn-dark" style="padding:9px 18px;font-size:14px">เริ่มใช้ฟรี</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">ระบบบริหารหอพัก · ขับเคลื่อนด้วย AI</span>
+      <h1>หอพักทั้งระบบ<br/>จบครบ <span class="hl">ใน LINE เดียว</span></h1>
+      <p class="lead">ออกบิลอัตโนมัติ ทวงหนี้เอง อ่านสลิป–มิเตอร์–บัตรประชาชนด้วย AI และตอบผู้เช่า 24 ชม. — เจ้าของหอเหลือเวลาไปโตธุรกิจ ไม่ใช่จมงานเอกสาร</p>
+      <div class="hero-cta">
+        <a href="#signup" class="btn btn-primary">เริ่มใช้ฟรี ไม่จำกัดเวลา →</a>
+        <a href="#how" class="btn btn-ghost">ดูวิธีใช้งาน</a>
+      </div>
+      <div class="hero-trust">
+        <span>⚡ ตั้งค่าเสร็จใน <b>10 นาที</b></span>
+        <span>💳 ฟรี <b>ไม่ต้องใส่บัตร</b></span>
+        <span>🏠 ใช้จริงแล้วที่ <b>PDK House</b></span>
+      </div>
+    </div>
+
+    <!-- phone mock -->
+    <div class="mock" aria-hidden="true">
+      <div class="bar"><span class="dot"></span> Welive — หอ TK Garden</div>
+      <div class="screen">
+        <div class="bubble">สวัสดีค่ะ 🌿 บิลเดือนนี้ของห้อง 304 ออกแล้วนะคะ</div>
+        <div class="flexcard">
+          <div class="h">🧾 ใบแจ้งหนี้ · ห้อง 304</div>
+          <div class="b">
+            <div class="row"><span>ค่าเช่า</span><span>3,500</span></div>
+            <div class="row"><span>ค่าน้ำ (12 หน่วย)</span><span>216</span></div>
+            <div class="row"><span>ค่าไฟ (140 หน่วย)</span><span>1,120</span></div>
+            <div class="total"><span>รวม</span><span>4,836 ฿</span></div>
+          </div>
+          <div class="pay">📲 จ่ายด้วย PromptPay</div>
+        </div>
+        <div class="bubble me">โอนแล้วนะครับ 🙏</div>
+        <div class="bubble">ได้รับยอด 4,836 ฿ แล้วค่ะ ✅ AI ตรวจสลิปอัตโนมัติ — ขอบคุณค่ะ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="wrap strip-in">
+    <span class="badge">✓ Pilot ใช้งานจริง</span>
+    <span>พิสูจน์แล้วกับ <b>PDK House</b> · 20 ห้อง · ออกบิล–ทวงหนี้–ตอบผู้เช่าอัตโนมัติทุกเดือน</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="pain">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" style="color:var(--lime)">ปัญหาที่เจ้าของหอเจอทุกเดือน</span>
+      <h2>งานหอพักกินเวลาคุณไปเท่าไหร่?</h2>
+      <p>3 เรื่องที่ทำให้เจ้าของหอเสียเวลาและรายได้มากที่สุด — Welive จัดการให้อัตโนมัติ</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="ic">🧮</div>
+        <h3>ออกบิลเอง ผิดบ่อย</h3>
+        <p>จดมิเตอร์ คูณหน่วย พิมพ์บิลทีละห้อง — เสียทั้งวัน แถมพลาดเลขก็ทะเลาะกับผู้เช่า</p>
+        <div class="fix">→ Welive ออกบิลครบทุกห้องใน 1 คลิก</div>
+      </div>
+      <div class="pain-card">
+        <div class="ic">📩</div>
+        <h3>ทวงหนี้ลำบากใจ</h3>
+        <p>ต้องคอยไล่ทักทีละคน ค้างจ่ายก็เกรงใจ สุดท้ายเงินเข้าช้า กระทบกระแสเงินสด</p>
+        <div class="fix">→ ระบบทวงอัตโนมัติ สุภาพ ตรงเวลา</div>
+      </div>
+      <div class="pain-card">
+        <div class="ic">🌙</div>
+        <h3>ผู้เช่าถามดึก ตอบไม่ทัน</h3>
+        <p>"ห้องว่างไหม" "บิลเท่าไหร่" "เน็ตเสีย" — คำถามเดิมๆ ทั้งวันทั้งคืน</p>
+        <div class="fix">→ AI ตอบแทน 24 ชม. ส่งต่อคุณเฉพาะเรื่องสำคัญ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">ความสามารถ</span>
+      <h2>ทุกอย่างที่หอพักต้องใช้ ในที่เดียว</h2>
+      <p>ตั้งแต่บิลแรกจนถึงรายงานภาพรวม — ทำงานอยู่บน LINE ที่ผู้เช่าใช้อยู่แล้ว ไม่ต้องโหลดแอปใหม่</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat"><div class="ic">🧾</div><h3>ออกบิล + PromptPay</h3><p>คิดค่าเช่า น้ำ ไฟ ที่จอดรถ อัตโนมัติ พร้อม QR PromptPay ส่งเข้า LINE ผู้เช่าทันที</p></div>
+      <div class="feat"><div class="ic">⏰</div><h3>ทวงหนี้อัตโนมัติ</h3><p>เตือนก่อนครบกำหนด วันครบ และตามรอบที่ตั้งไว้ — ไม่ต้องไล่ทวงเอง</p></div>
+      <div class="feat"><div class="ic">🤖</div><h3>OCR อ่านสลิปด้วย AI</h3><p>ผู้เช่าส่งสลิป ระบบอ่านยอด–วันที่–ธนาคาร แล้วจับคู่บิลให้อัตโนมัติ กันสลิปปลอม</p></div>
+      <div class="feat"><div class="ic">📷</div><h3>OCR มิเตอร์ + บัตร ปชช</h3><p>ถ่ายรูปมิเตอร์ AI อ่านเลขให้ ลงทะเบียนผู้เช่าด้วยบัตรประชาชน ตรวจเลข 13 หลักอัตโนมัติ</p></div>
+      <div class="feat"><div class="ic">💬</div><h3>AI ตอบผู้เช่า 24 ชม.</h3><p>ตอบคำถามจากคลังความรู้ของหอ เรื่องยากค่อยส่งต่อให้คุณ — ลดงานแชทลงมหาศาล</p></div>
+      <div class="feat"><div class="ic">📊</div><h3>Dashboard + รายงาน</h3><p>ดูห้องว่าง ยอดค้าง รายรับรายเดือน ครบในหน้าจอเดียว พร้อมรายงานสรุปอัตโนมัติ</p></div>
+      <div class="feat"><div class="ic">🚗</div><h3>ที่จอดรถ + จองห้อง</h3><p>คิดค่าจอด รองรับเช่ารายเดือน/วัน/ชั่วโมง และระบบจองห้องสำหรับ co-living</p></div>
+      <div class="feat"><div class="ic">📈</div><h3>Churn + Sentiment</h3><p>AI เตือนล่วงหน้าว่าห้องไหนเสี่ยงย้ายออก วิเคราะห์อารมณ์ผู้เช่า เพื่อรักษาผู้เช่าไว้</p></div>
+      <div class="feat"><div class="ic">🌐</div><h3>หลายหอ · หลายภาษา · API</h3><p>บริหารหลายหอในบัญชีเดียว รองรับ 6 ภาษา เปิด Public API + White-label สำหรับเชนใหญ่</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how" class="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">ติดตั้งเอง ไม่ต้องรอช่าง</span>
+      <h2>จากสมัครถึงใช้งานจริง ใน 10 นาที</h2>
+      <p>ออกแบบมาให้เจ้าของหอตั้งค่าเองได้ ไม่ต้องมีทีมไอที</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>สมัคร + เลือกแพคเกจ</h3><p>เริ่มฟรีได้ทันที ไม่ต้องใส่บัตรเครดิต</p></div>
+      <div class="step"><div class="n">2</div><h3>เชื่อม LINE หอคุณ</h3><p>ระบบตั้ง Rich Menu + เชื่อมต่อให้อัตโนมัติ</p></div>
+      <div class="step"><div class="n">3</div><h3>ใส่ห้อง + ค่าเช่า</h3><p>กรอกห้องหรือนำเข้าทีเดียวทั้งหอ</p></div>
+      <div class="step"><div class="n">4</div><h3>เปิดใช้งานจริง</h3><p>ออกบิล–ทวงหนี้–ตอบผู้เช่า เดินเองเลย</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">ราคา</span>
+      <h2>เริ่มฟรี จ่ายเมื่อหอโตขึ้น</h2>
+      <p>เลือกตามจำนวนห้องและฟีเจอร์ที่ต้องใช้ — อัปเกรด/ลดได้ทุกเมื่อ ไม่มีสัญญาผูกมัด</p>
+    </div>
+    <div class="price-grid">
+
+      <!-- Standard -->
+      <div class="plan">
+        <div class="pname">Standard</div>
+        <div class="pfor">หอเล็ก / อยากลองใช้ก่อน</div>
+        <div class="price"><span class="amt">ฟรี</span></div>
+        <div class="yr">ใช้ได้ไม่จำกัดเวลา</div>
+        <div class="rooms">สูงสุด 10 ห้อง · 1 หอ</div>
+        <ul>
+          <li><span class="ck">✓</span> ออกบิล + ทวงหนี้อัตโนมัติ</li>
+          <li><span class="ck">✓</span> PromptPay QR ในบิล</li>
+          <li><span class="ck">✓</span> LINE Bot + Flex บิล + Dashboard</li>
+          <li><span class="ck">✓</span> QR ลงทะเบียนผู้เช่า + ระบบมัดจำ</li>
+          <li><span class="ck">✓</span> จดมิเตอร์ (manual)</li>
+          <li class="off"><span class="ck">✗</span> OCR / AI Q&amp;A</li>
+        </ul>
+        <a href="#signup" class="btn btn-dark">เริ่มใช้ฟรี</a>
+      </div>
+
+      <!-- Premium (featured) -->
+      <div class="plan feat-plan">
+        <div class="tag">⭐ คุ้มสุด · แนะนำ</div>
+        <div class="pname">Premium</div>
+        <div class="pfor">หอ 10–60 ห้อง (กลุ่มหลัก)</div>
+        <div class="price"><span class="amt">฿590</span><span class="per">/ เดือน</span></div>
+        <div class="yr">หรือ ฿5,900/ปี — ประหยัด ~17%</div>
+        <div class="rooms">สูงสุด 60 ห้อง · 1 หอ</div>
+        <ul>
+          <li><span class="ck">✓</span> ทุกอย่างใน Standard</li>
+          <li><span class="ck">✓</span> OCR สลิป + auto-verify กันสลิปปลอม</li>
+          <li><span class="ck">✓</span> OCR มิเตอร์ + OCR บัตรประชาชน</li>
+          <li><span class="ck">✓</span> AI Q&amp;A 24 ชม. + Smart Escalation</li>
+          <li><span class="ck">✓</span> ที่จอดรถ + เช่ารายวัน/ชม. + Booking</li>
+          <li><span class="ck">✓</span> Proactive Alerts + รายงานเดือนอัตโนมัติ</li>
+        </ul>
+        <a href="#signup" class="btn btn-primary">ทดลอง Premium</a>
+      </div>
+
+      <!-- Professional -->
+      <div class="plan">
+        <div class="pname">Professional</div>
+        <div class="pfor">หอใหญ่ · เชน · re-seller</div>
+        <div class="price"><span class="amt">฿1,990</span><span class="per">/ เดือน</span></div>
+        <div class="yr">หรือ ฿19,900/ปี — ประหยัด ~17%</div>
+        <div class="rooms">ไม่จำกัดห้อง · หลายหอ</div>
+        <ul>
+          <li><span class="ck">✓</span> ทุกอย่างใน Premium</li>
+          <li><span class="ck">✓</span> Predictive Churn + Sentiment Analysis</li>
+          <li><span class="ck">✓</span> Multi-language (6 ภาษา)</li>
+          <li><span class="ck">✓</span> Public REST API</li>
+          <li><span class="ck">✓</span> White-label แบรนด์ของคุณเอง</li>
+          <li><span class="ck">✓</span> Support เฉพาะทาง + onboarding ฟรี</li>
+        </ul>
+        <a href="#signup" class="btn btn-dark">คุยกับทีมขาย</a>
+      </div>
+    </div>
+    <p class="addon">➕ บริการติดตั้งให้ถึงที่ ฿9,900 (ครั้งเดียว) — <b>ฟรีสำหรับ Professional</b></p>
+    <p class="compare-note">ทุกแพคเกจ: ไม่มีค่าแรกเข้า · ยกเลิกได้ทุกเมื่อ · ข้อมูลเป็นของคุณ 100%</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="how">
+  <div class="wrap" style="max-width:780px">
+    <div class="sec-head">
+      <span class="eyebrow">คำถามที่พบบ่อย</span>
+      <h2>เรื่องที่เจ้าของหอมักถาม</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <details open style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px">
+        <summary style="font-weight:600;cursor:pointer;color:var(--ink)">ผู้เช่าต้องโหลดแอปใหม่ไหม?</summary>
+        <p style="color:var(--muted);margin-top:10px;font-size:15px">ไม่ต้องเลย ทุกอย่างทำงานบน LINE ที่ผู้เช่าใช้อยู่แล้ว แค่แอดเป็นเพื่อนก็เริ่มใช้ได้</p>
+      </details>
+      <details style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px">
+        <summary style="font-weight:600;cursor:pointer;color:var(--ink)">เริ่มฟรีแล้วต้องใส่บัตรเครดิตไหม?</summary>
+        <p style="color:var(--muted);margin-top:10px;font-size:15px">ไม่ต้อง แพคเกจ Standard ใช้ฟรีไม่จำกัดเวลา ไม่ต้องผูกบัตร จ่ายเมื่ออัปเกรดเท่านั้น</p>
+      </details>
+      <details style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px">
+        <summary style="font-weight:600;cursor:pointer;color:var(--ink)">ย้ายข้อมูลจากระบบเดิม/Excel ได้ไหม?</summary>
+        <p style="color:var(--muted);margin-top:10px;font-size:15px">ได้ นำเข้าห้องและผู้เช่าทีเดียวทั้งหอได้ และมีบริการติดตั้งให้ถึงที่หากต้องการ</p>
+      </details>
+      <details style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px">
+        <summary style="font-weight:600;cursor:pointer;color:var(--ink)">ข้อมูลผู้เช่าปลอดภัยแค่ไหน?</summary>
+        <p style="color:var(--muted);margin-top:10px;font-size:15px">ข้อมูลแต่ละหอแยกขาดจากกัน (multi-tenant + RLS) ความลับเข้ารหัส และข้อมูลเป็นกรรมสิทธิ์ของคุณ</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="signup" class="cta">
+  <div class="wrap">
+    <h2>พร้อมให้หอคุณดูแลตัวเองหรือยัง?</h2>
+    <p>เริ่มใช้ Welive ฟรีวันนี้ ตั้งค่าเสร็จใน 10 นาที — ไม่ต้องใส่บัตรเครดิต</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-primary">เริ่มใช้ฟรี ไม่จำกัดเวลา →</a>
+      <a href="#" class="btn btn-ghost">ขอเดโม / ปรึกษาทีม</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div style="max-width:300px">
+        <div class="logo" style="color:#fff;margin-bottom:12px">
+          <svg class="mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="16" fill="#2C8576"/>
+            <path d="M13 20 L21 44 L32 26 L43 44 L51 20" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="32" cy="22" r="4.2" fill="#9FE870"/>
+          </svg>
+          <span>Welive</span>
+        </div>
+        <p style="font-size:14px">ระบบบริหารหอพักอัจฉริยะ — ออกบิล ทวงหนี้ OCR และ AI ครบ จบใน LINE</p>
+      </div>
+      <div class="foot-col">
+        <h4>ผลิตภัณฑ์</h4>
+        <a href="#features">ฟีเจอร์</a>
+        <a href="#pricing">แพคเกจ &amp; ราคา</a>
+        <a href="#how">วิธีเริ่มใช้</a>
+      </div>
+      <div class="foot-col">
+        <h4>บริษัท</h4>
+        <a href="#">เกี่ยวกับเรา</a>
+        <a href="#">ติดต่อ</a>
+        <a href="#">ขอเดโม</a>
+      </div>
+      <div class="foot-col">
+        <h4>ติดต่อ</h4>
+        <a href="#">LINE Official</a>
+        <a href="#">อีเมล</a>
+        <a href="#">โทร</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Welive. สงวนลิขสิทธิ์.</span>
+      <span>นโยบายความเป็นส่วนตัว · ข้อกำหนดการใช้งาน</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

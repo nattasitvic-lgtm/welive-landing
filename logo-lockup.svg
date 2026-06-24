@@ -1,0 +1,13 @@
+<svg viewBox="0 0 360 96" xmlns="http://www.w3.org/2000/svg" font-family="'Sora','IBM Plex Sans Thai',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="wg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14564b"/>
+      <stop offset="1" stop-color="#0B3B36"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="16" width="64" height="64" rx="16" fill="url(#wg2)"/>
+  <path d="M22 36 L33 62 L40 45 L48 62 L59 36" fill="none" stroke="#EAF7F0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" transform="translate(-1,0)"/>
+  <path d="M40 45 L48 62 L58 36" fill="none" stroke="#9FE870" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="58" cy="36" r="4" fill="#B6F24A"/>
+  <text x="90" y="60" font-size="40" font-weight="800" letter-spacing="-0.5" fill="#0B3B36">Welive</text>
+</svg>
