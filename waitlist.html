@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+  ========= สำหรับวิก/พี่เบนซ์ =========
+  ฟอร์มนี้ส่งข้อมูลผ่าน Formspree (ฟรี ไม่ต้องมี backend)
+  วิธีเปิดใช้: 1) สมัคร formspree.io (ฟรี) 2) สร้าง form ได้ form id เช่น "xxxxabcd"
+  3) แก้ค่า action ด้านล่างเป็น  https://formspree.io/f/xxxxabcd
+  หรือจะเปลี่ยนไปใช้ Google Form / Tally ก็ได้ (แค่เปลี่ยน action หรือฝัง embed)
+-->
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welive — ลงทะเบียนรับสิทธิ์ใช้ก่อน</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--teal:#2C8576;--ink:#0E3A33;--lime:#9FE870;--lime2:#B6F24A;--paper:#F6FAF8;--line:#E2EEE9;--muted:#5C7973}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'IBM Plex Sans Thai',system-ui,sans-serif;color:var(--ink);background:radial-gradient(130% 120% at 80% -10%,#4AA08F 0%,#2C8576 42%,#16443C 100%);min-height:100vh;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+  h1,h2,.bf{font-family:'Sora','IBM Plex Sans Thai',sans-serif}
+  a{color:inherit;text-decoration:none}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;max-width:920px;margin:0 auto;width:100%}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:800;font-size:20px;color:#fff}
+  .logo .mark{width:32px;height:32px}
+  .lang-toggle{display:inline-flex;border:1px solid rgba(255,255,255,.3);border-radius:999px;overflow:hidden}
+  .lang-btn{padding:6px 12px;font-size:13px;font-weight:700;color:#CFE6DF;background:transparent;border:0;cursor:pointer;font-family:'Sora',sans-serif}
+  .lang-btn.active{background:var(--lime);color:var(--ink)}
+  .wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:20px}
+  .card{background:#fff;border-radius:24px;max-width:520px;width:100%;padding:40px 34px;box-shadow:0 30px 70px rgba(0,0,0,.28)}
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .card h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:10px 0 8px;line-height:1.2}
+  .card .sub{color:var(--muted);font-size:15.5px;margin-bottom:24px}
+  label{display:block;font-size:13.5px;font-weight:600;margin:0 0 6px 2px}
+  .field{margin-bottom:16px}
+  input,select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;font-family:inherit;background:var(--paper);color:var(--ink)}
+  input:focus,select:focus{outline:none;border-color:var(--teal);background:#fff}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:480px){.row2{grid-template-columns:1fr}}
+  button.submit{width:100%;background:var(--lime);color:var(--ink);border:0;border-radius:999px;padding:15px;font-size:16px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer;transition:.16s;margin-top:6px}
+  button.submit:hover{background:var(--lime2);transform:translateY(-1px)}
+  .note{text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
+  .back{display:inline-flex;align-items:center;gap:6px;color:#CFE6DF;font-size:14px;margin-top:18px}
+  .back:hover{color:#fff}
+  .perks{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .perk{background:rgba(44,133,118,.1);color:var(--teal);font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:999px}
+  .thanks{display:none;text-align:center;padding:20px 0}
+  .thanks .big{font-size:48px;margin-bottom:10px}
+  .thanks h2{font-size:24px;font-weight:800;margin-bottom:8px}
+  .thanks p{color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <a href="index.html" class="logo">
+      <svg class="mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="16" fill="#2C8576"/>
+        <path d="M14 20 L24 45 L32 29 L40 45 L50 20" fill="none" stroke="#EAF7F0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M32 29 L40 45 L50 20" fill="none" stroke="#9FE870" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="50" cy="20" r="4" fill="#B6F24A"/>
+      </svg>
+      <span>Welive</span>
+    </a>
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="th" onclick="setLang('th')">ไทย</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <div id="formview">
+        <span class="eyebrow" data-en="Early access">เปิดให้ใช้ก่อนใคร</span>
+        <h1 data-en="Join the Welive waitlist">ลงทะเบียนรับสิทธิ์ใช้ Welive ก่อนใคร</h1>
+        <p class="sub" data-en="Leave your details and we'll reach out as soon as your spot opens — plus a special deal for early dorms.">ทิ้งข้อมูลไว้ เดี๋ยวเราติดต่อกลับทันทีที่ถึงคิว พร้อมดีลพิเศษสำหรับหอที่เข้าก่อน</p>
+        <div class="perks">
+          <span class="perk" data-en="✓ Free forever tier">✓ มีแพคเกจฟรีถาวร</span>
+          <span class="perk" data-en="✓ Set up in 10 min">✓ ตั้งค่า 10 นาที</span>
+          <span class="perk" data-en="✓ No credit card">✓ ไม่ต้องใส่บัตร</span>
+        </div>
+
+        <form id="wlform" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+          <div class="field">
+            <label data-en="Your name">ชื่อ-นามสกุล</label>
+            <input type="text" name="name" required />
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label data-en="Dorm / property name">ชื่อหอ / อพาร์ตเมนต์</label>
+              <input type="text" name="dorm_name" />
+            </div>
+            <div class="field">
+              <label data-en="Number of rooms">จำนวนห้อง</label>
+              <select name="rooms">
+                <option value="" data-en="Select">เลือก</option>
+                <option value="1-10">1–10</option>
+                <option value="11-30">11–30</option>
+                <option value="31-60">31–60</option>
+                <option value="60+">60+</option>
+              </select>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label data-en="Phone / LINE ID">เบอร์โทร / LINE ID</label>
+              <input type="text" name="contact" required />
+            </div>
+            <div class="field">
+              <label data-en="Province">จังหวัด</label>
+              <input type="text" name="province" />
+            </div>
+          </div>
+          <div class="field">
+            <label data-en="Email (optional)">อีเมล (ถ้ามี)</label>
+            <input type="email" name="email" />
+          </div>
+          <button type="submit" class="submit" data-en="Reserve my spot →">ขอรับสิทธิ์ใช้ก่อน →</button>
+          <p class="note" data-en="We'll never spam. We only contact you about Welive.">เราไม่สแปม ติดต่อเฉพาะเรื่อง Welive เท่านั้น</p>
+        </form>
+      </div>
+
+      <div class="thanks" id="thanks">
+        <div class="big">🌿</div>
+        <h2 data-en="You're on the list!">ลงทะเบียนเรียบร้อย!</h2>
+        <p data-en="Thanks — we'll reach out as soon as your spot is ready.">ขอบคุณครับ เดี๋ยวเราติดต่อกลับทันทีที่ถึงคิวของคุณ</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:0 0 28px"><a href="index.html" class="back" data-en="← Back to home">← กลับหน้าหลัก</a></div>
+
+<script>
+  // ---- bilingual ----
+  (function(){
+    var els=document.querySelectorAll('[data-en]');
+    els.forEach(function(el){el.setAttribute('data-th',el.innerHTML);});
+    window.setLang=function(lang){
+      if(lang!=='en')lang='th';
+      document.documentElement.lang=lang;
+      els.forEach(function(el){el.innerHTML=(lang==='en')?el.getAttribute('data-en'):el.getAttribute('data-th');});
+      document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});
+      try{localStorage.setItem('welive_lang',lang);}catch(e){}
+    };
+    var saved=null;try{saved=localStorage.getItem('welive_lang');}catch(e){}
+    setLang(saved||'th');
+  })();
+
+  // ---- submit via fetch (shows thank-you without leaving page). Works once a real Formspree ID is set. ----
+  var form=document.getElementById('wlform');
+  form.addEventListener('submit',function(e){
+    if(form.action.indexOf('REPLACE_WITH_YOUR_ID')>-1){
+      // not configured yet: still show thank-you so the page is testable
+      e.preventDefault();
+      document.getElementById('formview').style.display='none';
+      document.getElementById('thanks').style.display='block';
+      return;
+    }
+    e.preventDefault();
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        document.getElementById('formview').style.display='none';
+        document.getElementById('thanks').style.display='block';
+      }).catch(function(){ form.submit(); });
+  });
+</script>
+</body>
+</html>
