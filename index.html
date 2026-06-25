@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Welive — ระบบบริหารหอพักอัจฉริยะ จบครบใน LINE</title>
-<meta name="description" content="Welive ช่วยเจ้าของหอพักออกบิล ทวงหนี้ อ่านสลิป/มิเตอร์ด้วย AI และตอบผู้เช่า 24 ชม. ผ่าน LINE — เริ่มใช้ฟรี ตั้งค่าเสร็จใน 10 นาที" />
+<title>WeLive — ระบบบริหารหอพักอัจฉริยะ จบครบใน LINE</title>
+<meta name="description" content="WeLive ช่วยเจ้าของหอพักออกบิล ทวงหนี้ อ่านสลิป/มิเตอร์ด้วย AI และตอบผู้เช่า 24 ชม. ผ่าน LINE — เริ่มใช้ฟรี ตั้งค่าเสร็จใน 10 นาที" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<meta property="og:title" content="Welive — ระบบบริหารหอพักอัจฉริยะ" />
+<meta property="og:title" content="WeLive — ระบบบริหารหอพักอัจฉริยะ" />
 <meta property="og:description" content="ออกบิล ทวงหนี้ OCR สลิป/มิเตอร์ AI ตอบผู้เช่า — ครบ จบใน LINE เริ่มใช้ฟรี" />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
     --teal:#2C8576; --teal-700:#20655A; --ink:#0E3A33; --ink-2:#0C2C27;
@@ -21,7 +21,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:'IBM Plex Sans Thai',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,.brandfont{font-family:'Sora','IBM Plex Sans Thai',sans-serif}
+  h1,h2,h3,.brandfont{font-family:'Plus Jakarta Sans','IBM Plex Sans Thai',sans-serif}
   a{text-decoration:none;color:inherit}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
   .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:13px 24px;font-weight:600;font-size:15px;cursor:pointer;border:0;transition:.18s;font-family:inherit}
@@ -36,7 +36,7 @@
   /* NAV */
   header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
-  .logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:800;font-size:21px;letter-spacing:-.01em;color:var(--ink)}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:21px;letter-spacing:-.01em;color:var(--ink)}
   .logo .mark{width:34px;height:34px}
   .nav-right{display:flex;align-items:center;gap:20px}
   .nav-links{display:flex;gap:26px;align-items:center}
@@ -45,7 +45,7 @@
   @media(max-width:860px){.nav-links{display:none}}
   /* language toggle */
   .lang-toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex:none}
-  .lang-btn{padding:6px 12px;font-size:13px;font-weight:700;color:var(--muted);background:transparent;border:0;cursor:pointer;font-family:'Sora',sans-serif;letter-spacing:.03em}
+  .lang-btn{padding:6px 12px;font-size:13px;font-weight:700;color:var(--muted);background:transparent;border:0;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.03em}
   .lang-btn.active{background:var(--teal);color:#fff}
 
   /* HERO */
@@ -112,7 +112,7 @@
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   @media(max-width:820px){.steps{grid-template-columns:1fr 1fr}}
   .step{text-align:center;padding:10px}
-  .step .n{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--lime);font-family:'Sora';font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:19px}
+  .step .n{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--lime);font-family:'Plus Jakarta Sans';font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:19px}
   .step h3{font-size:16px;margin-bottom:6px}
   .step p{color:var(--muted);font-size:14px}
 
@@ -123,10 +123,10 @@
   .plan.feat-plan{border:2px solid var(--teal);box-shadow:0 20px 50px rgba(44,133,118,.18);transform:translateY(-6px)}
   @media(max-width:900px){.plan.feat-plan{transform:none}}
   .plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--ink);font-weight:700;font-size:12.5px;padding:5px 16px;border-radius:999px;white-space:nowrap}
-  .plan .pname{font-family:'Sora';font-weight:700;font-size:20px}
+  .plan .pname{font-family:'Plus Jakarta Sans';font-weight:700;font-size:20px}
   .plan .pfor{color:var(--muted);font-size:13.5px;margin:4px 0 18px;min-height:20px}
   .plan .price{display:flex;align-items:baseline;gap:4px}
-  .plan .price .amt{font-family:'Sora';font-weight:800;font-size:40px;color:var(--ink)}
+  .plan .price .amt{font-family:'Plus Jakarta Sans';font-weight:800;font-size:40px;color:var(--ink)}
   .plan .price .per{color:var(--muted);font-size:15px}
   .plan .yr{font-size:13px;color:var(--teal);font-weight:600;margin:6px 0 4px;min-height:18px}
   .plan .rooms{background:var(--paper);border-radius:10px;padding:9px 12px;font-size:13.5px;font-weight:600;color:var(--ink);margin:16px 0 18px;text-align:center}
@@ -170,12 +170,12 @@
   .cmd p{color:#A9CEC4;font-size:16px;max-width:520px}
   .cmd-list{list-style:none;margin:22px 0 18px;display:flex;flex-direction:column;gap:12px}
   .cmd-list li{display:flex;align-items:center;gap:12px;font-size:15px;color:#DCEDE8}
-  .cmd-list code{background:rgba(159,232,112,.16);color:var(--lime);font-family:'Sora',monospace;font-weight:700;padding:5px 12px;border-radius:8px;font-size:14px;white-space:nowrap}
+  .cmd-list code{background:rgba(159,232,112,.16);color:var(--lime);font-family:'Plus Jakarta Sans',monospace;font-weight:700;padding:5px 12px;border-radius:8px;font-size:14px;white-space:nowrap}
   .cmd-note{font-size:14px;color:#9FC0B7;border-left:2px solid var(--lime);padding-left:14px}
   .cmd-card{background:#0c2a25;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:18px}
   .cmd-card .bar{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:#fff;margin-bottom:14px}
   .cmd-card .dot{width:9px;height:9px;border-radius:50%;background:var(--lime)}
-  .cmd-bub{background:#D7F7C9;color:#173b35;border-radius:14px;padding:9px 14px;font-size:14px;font-weight:700;max-width:55%;margin-left:auto;margin-bottom:12px;font-family:'Sora',monospace}
+  .cmd-bub{background:#D7F7C9;color:#173b35;border-radius:14px;padding:9px 14px;font-size:14px;font-weight:700;max-width:55%;margin-left:auto;margin-bottom:12px;font-family:'Plus Jakarta Sans',monospace}
   .cmd-reply{background:#fff;color:#173b35;border-radius:14px;padding:13px 15px;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
   .cmd-reply .r{display:flex;justify-content:space-between;padding:3px 0;color:#33524c}
   .cmd-reply .tt{display:flex;justify-content:space-between;border-top:1px dashed #cbded8;margin-top:6px;padding-top:8px;font-weight:700;color:var(--ink)}
@@ -187,7 +187,7 @@
   .rm-cell .lb{font-size:13px;font-weight:700;color:#EAF7F0}
   .rm-cell.hero{background:linear-gradient(160deg,#176657,#0e3a33)}
   .rm-cell.hero:hover{background:linear-gradient(160deg,#1c7a68,#15564b)}
-  .rm-cell.hero .amt{font-family:'Sora';font-weight:800;font-size:21px;color:var(--lime);margin-top:2px}
+  .rm-cell.hero .amt{font-family:'Plus Jakarta Sans';font-weight:800;font-size:21px;color:var(--lime);margin-top:2px}
   .rm-cap{text-align:center;color:#9FC0B7;font-size:12.5px;margin-top:12px}
 </style>
 </head>
@@ -203,7 +203,7 @@
         <path d="M32 29 L40 45 L50 20" fill="none" stroke="#9FE870" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="50" cy="20" r="4" fill="#B6F24A"/>
       </svg>
-      <span>Welive</span>
+      <span>WeLive</span>
     </div>
     <div class="nav-right">
       <nav class="nav-links">
@@ -241,7 +241,7 @@
 
     <!-- phone mock -->
     <div class="mock" aria-hidden="true">
-      <div class="bar"><span class="dot"></span> <span data-en="Welive — TK Garden dorm">Welive — หอ TK Garden</span></div>
+      <div class="bar"><span class="dot"></span> <span data-en="WeLive — TK Garden dorm">WeLive — หอ TK Garden</span></div>
       <div class="screen">
         <div class="bubble" data-en="Hi! 🌿 This month's bill for room 304 is ready.">สวัสดีค่ะ 🌿 บิลเดือนนี้ของห้อง 304 ออกแล้วนะคะ</div>
         <div class="flexcard">
@@ -274,8 +274,8 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow" data-en="Built for hands-off owners">สร้างมาเพื่อเจ้าของที่อยากให้หอดูแลตัวเอง</span>
-      <h2 data-en="You invested for passive income — Welive keeps it passive">ลงทุนหอเพื่อรายได้ Passive — Welive ทำให้มัน Passive จริง</h2>
-      <p data-en="Most owners wanted income on the side, not a second job. Welive takes the daily work so you don't have to be on-site.">เจ้าของหอส่วนใหญ่หวังรายได้เสริม ไม่ใช่งานประจำที่สอง — Welive รับงานรายวันไปทำแทน คุณไม่ต้องเฝ้าหน้างาน</p>
+      <h2 data-en="You invested for passive income — WeLive keeps it passive">ลงทุนหอเพื่อรายได้ Passive — WeLive ทำให้มัน Passive จริง</h2>
+      <p data-en="Most owners wanted income on the side, not a second job. WeLive takes the daily work so you don't have to be on-site.">เจ้าของหอส่วนใหญ่หวังรายได้เสริม ไม่ใช่งานประจำที่สอง — WeLive รับงานรายวันไปทำแทน คุณไม่ต้องเฝ้าหน้างาน</p>
     </div>
     <div class="who-grid">
       <div class="who-card"><div class="ic">💼</div><h3 data-en="Have a full-time job">มีงานประจำอยู่แล้ว</h3><p data-en="No time to issue bills, chase rent and reply to tenants every day.">ไม่มีเวลานั่งออกบิล ทวงหนี้ ตอบแชทผู้เช่าทุกวัน</p></div>
@@ -292,14 +292,14 @@
     <div class="sec-head">
       <span class="eyebrow" style="color:var(--lime)" data-en="The problems landlords face every month">ปัญหาที่เจ้าของหอเจอทุกเดือน</span>
       <h2 data-en="How much time does dorm admin eat up?">งานหอพักกินเวลาคุณไปเท่าไหร่?</h2>
-      <p data-en="The 3 things that cost landlords the most time and money — Welive handles them automatically.">3 เรื่องที่ทำให้เจ้าของหอเสียเวลาและรายได้มากที่สุด — Welive จัดการให้อัตโนมัติ</p>
+      <p data-en="The 3 things that cost landlords the most time and money — WeLive handles them automatically.">3 เรื่องที่ทำให้เจ้าของหอเสียเวลาและรายได้มากที่สุด — WeLive จัดการให้อัตโนมัติ</p>
     </div>
     <div class="pain-grid">
       <div class="pain-card">
         <div class="ic">🧮</div>
         <h3 data-en="Manual billing, frequent errors">ออกบิลเอง ผิดบ่อย</h3>
         <p data-en="Reading meters, multiplying units, typing each bill — a whole day gone, and one wrong number means an argument.">จดมิเตอร์ คูณหน่วย พิมพ์บิลทีละห้อง — เสียทั้งวัน แถมพลาดเลขก็ทะเลาะกับผู้เช่า</p>
-        <div class="fix" data-en="→ Welive issues every room's bill in one click">→ Welive ออกบิลครบทุกห้องใน 1 คลิก</div>
+        <div class="fix" data-en="→ WeLive issues every room's bill in one click">→ WeLive ออกบิลครบทุกห้องใน 1 คลิก</div>
       </div>
       <div class="pain-card">
         <div class="ic">📩</div>
@@ -345,7 +345,7 @@
     <div>
       <span class="eyebrow" data-en="Run it from your phone">สั่งงานจากมือถือ</span>
       <h2 data-en="Manage the whole dorm by tapping in LINE">บริหารทั้งหอ แค่แตะปุ่มใน LINE</h2>
-      <p data-en="No computer, no new app. Tap a button in the LINE menu (Rich Menu) — or type a hashtag — and Welive does it instantly, from anywhere.">ไม่ต้องเปิดคอม ไม่ต้องโหลดแอป — แตะปุ่มในเมนู LINE (Rich Menu) หรือจะพิมพ์แฮชแท็กก็ได้ Welive ทำให้ทันที จากที่ไหนก็ได้</p>
+      <p data-en="No computer, no new app. Tap a button in the LINE menu (Rich Menu) — or type a hashtag — and WeLive does it instantly, from anywhere.">ไม่ต้องเปิดคอม ไม่ต้องโหลดแอป — แตะปุ่มในเมนู LINE (Rich Menu) หรือจะพิมพ์แฮชแท็กก็ได้ WeLive ทำให้ทันที จากที่ไหนก็ได้</p>
       <ul class="cmd-list">
         <li><code>📊 ยอดเก็บ</code> <span data-en="See this month's collection instantly">ดูยอดเก็บเดือนนี้ทันที</span></li>
         <li><code>🧾 ออกบิล</code> <span data-en="Issue bills for every room at once">ออกบิลทุกห้องในคำสั่งเดียว</span></li>
@@ -490,7 +490,7 @@
 <section id="signup" class="cta">
   <div class="wrap">
     <h2 data-en="Ready to let your dorm run itself?">พร้อมให้หอคุณดูแลตัวเองหรือยัง?</h2>
-    <p data-en="Start using Welive free today — set up in 10 minutes, no credit card.">เริ่มใช้ Welive ฟรีวันนี้ ตั้งค่าเสร็จใน 10 นาที — ไม่ต้องใส่บัตรเครดิต</p>
+    <p data-en="Start using WeLive free today — set up in 10 minutes, no credit card.">เริ่มใช้ WeLive ฟรีวันนี้ ตั้งค่าเสร็จใน 10 นาที — ไม่ต้องใส่บัตรเครดิต</p>
     <div class="hero-cta">
       <a href="waitlist.html" class="btn btn-primary" data-en="Start free, forever →">เริ่มใช้ฟรี ไม่จำกัดเวลา →</a>
       <a href="waitlist.html" class="btn btn-ghost" data-en="Request a demo / talk to us">ขอเดโม / ปรึกษาทีม</a>
@@ -510,7 +510,7 @@
             <path d="M32 29 L40 45 L50 20" fill="none" stroke="#9FE870" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="50" cy="20" r="4" fill="#B6F24A"/>
           </svg>
-          <span>Welive</span>
+          <span>WeLive</span>
         </div>
         <p style="font-size:14px" data-en="Smart dorm management — billing, reminders, OCR and AI, all inside LINE.">ระบบบริหารหอพักอัจฉริยะ — ออกบิล ทวงหนี้ OCR และ AI ครบ จบใน LINE</p>
       </div>
@@ -534,7 +534,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span data-en="© 2026 Welive. All rights reserved.">© 2026 Welive. สงวนลิขสิทธิ์.</span>
+      <span data-en="© 2026 WeLive. All rights reserved.">© 2026 WeLive. สงวนลิขสิทธิ์.</span>
       <span data-en="Privacy Policy · Terms of Service">นโยบายความเป็นส่วนตัว · ข้อกำหนดการใช้งาน</span>
     </div>
   </div>
@@ -546,8 +546,8 @@
     // capture Thai (default) HTML
     els.forEach(function(el){ el.setAttribute('data-th', el.innerHTML); });
     var titles = {
-      th: 'Welive — ระบบบริหารหอพักอัจฉริยะ จบครบใน LINE',
-      en: 'Welive — Smart dorm management, all inside LINE'
+      th: 'WeLive — ระบบบริหารหอพักอัจฉริยะ จบครบใน LINE',
+      en: 'WeLive — Smart dorm management, all inside LINE'
     };
     window.setLang = function(lang){
       if(lang !== 'en') lang = 'th';
